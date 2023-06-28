@@ -26,7 +26,7 @@ const removeContact = async (contactId) => {
 };
 
 const addContact = async (name, email, phone) => {
-  let getContacts = await listContacts();
+  const getContacts = await listContacts();
   const id = randomId(len, pattern);
   const data = {
     id,
@@ -34,7 +34,9 @@ const addContact = async (name, email, phone) => {
     email,
     phone,
   };
-  return [...getContacts, data];
+  const newContacts = JSON.stringify([...getContacts, data])
+  await fs.writeFile(contactsPath, newContacts);
+  return data;
 };
 
 module.exports = {
