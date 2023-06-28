@@ -1,8 +1,5 @@
 const contacts = require("./contacts");
 const { program } = require("commander");
-// const yargs = require("yargs");
-// const { hideBin } = require("yargs/helpers")
-// console.log("Hello node");
 
 program
   .option("--action, <type>")
